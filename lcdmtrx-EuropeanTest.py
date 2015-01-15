@@ -27,7 +27,7 @@ from lcdmtrx import *
 import sys
 import time
 
-PORT_SERIE = '/dev/ttyACM0' #identification du port série sur lequel le LCD USB est connecté
+PORT_SERIE = '/dev/ttyACM1' #identification du port série sur lequel le LCD USB est connecté
 
 LCD_COLS = 16 # Taille du LCD 16 caractères x 2 lignes
 LCD_ROWS = 2

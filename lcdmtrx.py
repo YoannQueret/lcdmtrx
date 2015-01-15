@@ -21,6 +21,10 @@ BSD license - identique à celle d'AdaFruit
 ------------------------------------------------------------------------
 History:
   02 aug 2014 - Dominique - v 0.1 (première release)
+  11 aug 2014 - Dominique - V 0.2 - Adding EuropeLcdMatrix.write_european_pos()
+  11 aug 2014 - Dominique - V 0.3 - Fix EuropeLcdMatrix.write_european to 
+									avoids error "this one handles int and str for our emulation and ints for Python 3.x"
+									in serialutils.py when running on Raspberry-Pi under Python 2.7.3rc2
 
 ========================================================================
 =  Here under the original message bloc from AdaFruit                  =
@@ -613,4 +617,25 @@ class EuropeLcdMatrix( LcdMatrix ):
 			else:
 				#DEBUG: print( '  ajout origine %s ' % (c) )
 				translatedStr += c 
-		self.write( translatedStr )
+		# Fix: http://stackoverflow.com/questions/22275079/pyserial-write-wont-take-my-string
+		# self.write( translatedStr )
+		self.write( translatedStr.encode() )
+
+	def write_european_pos( self, row, col, str ):
+		""" Déplace le curseur sur l'écran à position ligne, colonne.
+		    puis affiche la chaine de caractère. 
+		    AUTOSCROLL doit être désactivé!
+		
+			Args:
+				row (int): Ligne à laquelle il faut placer le curseur (1..N)
+				col (int): Colonne à laquelle il faut placer le curseur (1..N)
+				Args:
+				str (string): chaine de caractère UNICODE à envoyer sur la ligne courante du LCD.
+							  \r Force le passage à la ligne suivante.
+							  \n ignoré 
+							  
+			Remarks:
+				ATTENTION - LA BANK EUROPEAN CHARSET DOIT ÊTRE CHARGEE!
+		"""
+		self.position( row, col )
+		self.write_european( str )
