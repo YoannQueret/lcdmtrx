@@ -7,6 +7,7 @@ Voir notre tutoriel:
 ---> http://wiki.mchobby.be/index.php?title=LCD-USB-TTL
 
 Fichiers:
+---------
   * lcdmtrx.py
 		contient la classe LcdMatrix et EuropeLcdMatrix
   * lcdmtrx-FullTest.py 
