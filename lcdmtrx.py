@@ -82,7 +82,7 @@ CMD_LOAD_CUSTOM_CHAR_FROM_BANK = 0xC0
 # --- Autre ---
 CMD_PLACE_MEDIUM_DIGIT         = 0x6F # Medium Digit Placement
 CMD_SET_GPO_ON				   = 0x57 # Turn On the General Purpose Output (5 Volts logic)
-CMD_SET_GPO_OFF				   = 0x57 # Turn Off the General Purpose Output (5 Volts logic)
+CMD_SET_GPO_OFF				   = 0x56 # Turn Off the General Purpose Output (5 Volts logic)
 CMD_SET_BAUDRATE			   = 0x39 # Change the baud rate of serial interface
 
 # --- Nom et Numéro ddes GPO ---
